@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include"game.h";
 
 void Initboard(char board[ROW][COL], int row, int col)
@@ -14,7 +15,7 @@ void Initboard(char board[ROW][COL], int row, int col)
 }
 void Displayboard(char board[ROW][COL], int row, int col)
 {
-	//æ‰“å°è¡Œ
+	//´òÓ¡ĞĞ
 	int i = 0;
 	for (i = 0; i < row; i++)
 	{
@@ -40,7 +41,7 @@ void Displayboard(char board[ROW][COL], int row, int col)
 			}
 		}
 		printf("\n");
-		//ä¸€æ¬¡å¾ªç¯
+		//Ò»´ÎÑ­»·
 		//   |   |
 		//---|---|---
 
@@ -50,8 +51,8 @@ void Displayboard(char board[ROW][COL], int row, int col)
 void Playermove(char board[ROW][COL], int row, int col)
 {
 	int x, y;
-	printf("ç©å®¶ä¸‹æ£‹\n");
-	printf("è¯·è¾“å…¥åæ ‡>:");
+	printf("Íæ¼ÒÏÂÆå\n");
+	printf("ÇëÊäÈë×ø±ê>:");
 	while (1)
 	{
 		scanf("%d%d", &x, &y);
@@ -64,19 +65,19 @@ void Playermove(char board[ROW][COL], int row, int col)
 			}
 			else
 			{
-				printf("è¯¥åæ ‡è¢«å ç”¨\n");
+				printf("¸Ã×ø±ê±»Õ¼ÓÃ\n");
 			}
 		}
 		else
 		{
-			printf("è¾“å…¥çš„åæ ‡éæ³•.\n");
+			printf("ÊäÈëµÄ×ø±ê·Ç·¨.\n");
 		}
 	}
 }
 void Computermove(char board[ROW][COL], int row, int col)
 {
 	int x, y;
-	printf("ç”µè„‘èµ°:\n");
+	printf("µçÄÔ×ß:\n");
 	while (1)
 	{
 		 x = rand() % row;
@@ -91,7 +92,7 @@ void Computermove(char board[ROW][COL], int row, int col)
 char Iswin(char board[ROW][COL], int row, int col)
 {
 	int i = 0;
-	//åˆ¤æ–­è¡Œ
+	//ÅĞ¶ÏĞĞ
 	for (i = 0; i < row; i++)
 	{
 		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][1] != ' ')
@@ -99,7 +100,7 @@ char Iswin(char board[ROW][COL], int row, int col)
 			return board[i][1];
 		}
 	}
-	//åˆ¤æ–­åˆ—
+	//ÅĞ¶ÏÁĞ
 	for (i = 0; i < col; i++)
 	{
 		if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[1][i] != ' ')
@@ -107,7 +108,7 @@ char Iswin(char board[ROW][COL], int row, int col)
 			return board[1][i];
 		}
 	}
-	//å¯¹è§’çº¿
+	//¶Ô½ÇÏß
 	if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ')
 	{
 		return board[1][1];
@@ -116,7 +117,7 @@ char Iswin(char board[ROW][COL], int row, int col)
 	{
 		return board[1][1];
 	}
-	//æ˜¯å¦å¹³å±€
+	//ÊÇ·ñÆ½¾Ö
 	if(1==Isfull(board, ROW, COL))
 	{
 		return 'Q';
